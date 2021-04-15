@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Prova AC2</string>
+    <string name="texto_botao_comprar_cachorros">Comprar cachorros</string>
+    <string name="cachorro1">Cachorro 1:</string>
+    <string name="cachorro2">Cachorro 2:</string>
+    <string name="valor_total">Preço total de compra: R$ %d</string>
+    <string name="nao_encontrado">(não encontrado)</string>
+    <string name="nenhum_resultado">Deu ruim... Nenhum cachorro encontrado com os ids %d e %d</string>
+    <string name="ligacao_frase">e</string>
+</resources>
