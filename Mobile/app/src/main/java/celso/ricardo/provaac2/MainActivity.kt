@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.Toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,10 +14,17 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     var naoEncontrou1: Boolean = false
     var naoEncontrou2: Boolean = false
+    var indicadoCriancas: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val sw1 = findViewById<Switch>(R.id.switch1)
+
+        sw1?.setOnCheckedChangeListener({ _ , isChecked ->
+            indicadoCriancas = if (isChecked) true else false
+        })
     }
 
     fun comprar(view: View) {
@@ -61,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        if(naoEncontrou1 && naoEncontrou2){
+        if(naoEncontrou1 || naoEncontrou2){
             telaDeuRuim.putExtra("id1", etCachorro1.text.toString().toInt())
             telaDeuRuim.putExtra("id2", etCachorro2.text.toString().toInt())
             startActivity(telaDeuRuim)

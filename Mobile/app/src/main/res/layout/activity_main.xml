@@ -44,4 +44,11 @@
         app:layout_constraintLeft_toRightOf="@id/iv_cachorro1"
         android:id="@+id/iv_cachorro2"/>
 
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_cachorro1"
+        android:text="@string/indicado_criancas"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

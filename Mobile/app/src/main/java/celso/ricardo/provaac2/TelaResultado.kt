@@ -18,12 +18,20 @@ class TelaResultado : AppCompatActivity() {
         var valorMedioCachorro1 = intent.getIntExtra("precoMedioCachorro1",0)
         var valorMedioCachorro2 = intent.getIntExtra("precoMedioCachorro2",0)
 
+        var valor1 = getString(R.string.cachorro1, valorMedioCachorro1)
+        var valor2 = getString(R.string.cachorro2, valorMedioCachorro2)
+
         if(naoEncontrou1){
             tvCachorro1.setText(R.string.cachorro1 + R.string.nao_encontrado)
+        }
+        else{
+            tvCachorro1.setText(valor1)
         }
 
         if(naoEncontrou2){
             tvCachorro2.setText(R.string.cachorro2 + R.string.nao_encontrado)
+        }else{
+            tvCachorro2.setText(valor2)
         }
 
         var valor = getString(R.string.valor_total, (valorMedioCachorro1 + valorMedioCachorro2))
