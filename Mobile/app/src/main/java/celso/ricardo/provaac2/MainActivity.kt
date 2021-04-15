@@ -45,8 +45,18 @@ class MainActivity : AppCompatActivity() {
                     naoEncontrou1 = true
                     telaResultado.putExtra("precoMedioCachorro1", 0)
                 } else {
-                    if (response.body()!!.indicadoCriancas) {
-                        telaResultado.putExtra("precoMedioCachorro1", response.body()!!.precoMedio)
+                    if (indicadoCriancas) {
+                        if (response.body()!!.indicadoCriancas) {
+                            telaResultado.putExtra(
+                                "precoMedioCachorro1",
+                                response.body()!!.precoMedio
+                            )
+                        }
+                    }
+                    else{
+                        telaResultado.putExtra(
+                            "precoMedioCachorro1",
+                            response.body()!!.precoMedio
                     }
                 }
             }
@@ -62,8 +72,18 @@ class MainActivity : AppCompatActivity() {
                     naoEncontrou2 = true
                     telaResultado.putExtra("precoMedioCachorro2", 0)
                 } else {
-                    if (response.body()!!.indicadoCriancas) {
-                        telaResultado.putExtra("precoMedioCachorro2", response.body()!!.precoMedio)
+                    if (indicadoCriancas) {
+                        if (response.body()!!.indicadoCriancas) {
+                            telaResultado.putExtra(
+                                "precoMedioCachorro2",
+                                response.body()!!.precoMedio
+                            )
+                        }
+                    }
+                    else{
+                        telaResultado.putExtra(
+                            "precoMedioCachorro2",
+                            response.body()!!.precoMedio
                     }
                 }
             }
@@ -73,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        if(naoEncontrou1 || naoEncontrou2){
+        if( (naoEncontrou1 == true) && (naoEncontrou2 == true) ){
             telaDeuRuim.putExtra("id1", etCachorro1.text.toString().toInt())
             telaDeuRuim.putExtra("id2", etCachorro2.text.toString().toInt())
             startActivity(telaDeuRuim)
