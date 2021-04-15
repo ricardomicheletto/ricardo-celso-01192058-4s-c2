@@ -39,13 +39,15 @@ class MainActivity : AppCompatActivity() {
 
         val apiCachorros = ConexaoApiCachorros.criar()
 
-        apiCachorros.get(id1).enqueue(object : Callback<Cachorro>{
+        apiCachorros.get(id1).enqueue(object : Callback<Cachorro> {
             override fun onResponse(call: Call<Cachorro>, response: Response<Cachorro>) {
-                if(response.code() == 404){
+                if (response.code() == 404) {
                     naoEncontrou1 = true
                     telaResultado.putExtra("precoMedioCachorro1", 0)
-                }else{
-                    telaResultado.putExtra("precoMedioCachorro1", response.body()!!.precoMedio)
+                } else {
+                    if (response.body()!!.indicadoCriancas) {
+                        telaResultado.putExtra("precoMedioCachorro1", response.body()!!.precoMedio)
+                    }
                 }
             }
 
@@ -54,13 +56,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        apiCachorros.get(id2).enqueue(object : Callback<Cachorro>{
+        apiCachorros.get(id2).enqueue(object : Callback<Cachorro> {
             override fun onResponse(call: Call<Cachorro>, response: Response<Cachorro>) {
-                if(response.code() == 404){
+                if (response.code() == 404) {
                     naoEncontrou2 = true
                     telaResultado.putExtra("precoMedioCachorro2", 0)
-                }else{
-                    telaResultado.putExtra("precoMedioCachorro2", response.body()!!.precoMedio)
+                } else {
+                    if (response.body()!!.indicadoCriancas) {
+                        telaResultado.putExtra("precoMedioCachorro2", response.body()!!.precoMedio)
+                    }
                 }
             }
 

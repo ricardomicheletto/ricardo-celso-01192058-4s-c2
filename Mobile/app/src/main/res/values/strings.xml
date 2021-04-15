@@ -6,5 +6,5 @@
     <string name="valor_total">Preço total de compra: R$ %d</string>
     <string name="nao_encontrado">(não encontrado)</string>
     <string name="nenhum_resultado">Deu ruim... Nenhum cachorro encontrado com os ids %d e %d</string>
-    <string name="indicado_criancas">Indicado crianças</string>
+    <string name="indicado_criancas">Apenas amigáveis com crianças</string>
 </resources>
